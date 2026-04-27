@@ -1,0 +1,11 @@
+FROM registry.cn-hangzhou.aliyuncs.com/hzbs/eclipse-temurin:17
+
+WORKDIR /app
+
+COPY ./playedu-api/target/playedu-api.jar /app/app.jar
+
+RUN chmod +x /app/app.jar
+
+EXPOSE 9898/tcp
+
+ENTRYPOINT ["java", "-jar", "app.jar"]

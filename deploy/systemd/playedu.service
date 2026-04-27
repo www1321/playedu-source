@@ -1,0 +1,18 @@
+[Unit]
+Description=PlayEdu Backend Service
+After=network.target mysqld.service
+Requires=mysqld.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/playedu/playedu-api
+ExecStart=/usr/bin/java -Xms512m -Xmx1024m -jar /opt/playedu/playedu-api/playedu-api/target/playedu-api.jar --spring.profiles.active=dev
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/var/log/playedu.log
+StandardError=append:/var/log/playedu.log
+
+[Install]
+WantedBy=multi-user.target

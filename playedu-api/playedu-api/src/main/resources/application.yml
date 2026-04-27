@@ -1,0 +1,59 @@
+server:
+  port: 9898
+spring:
+  profiles:
+    active: "dev"
+  aop:
+    auto: true
+    proxy-target-class: true
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 15MB
+      max-file-size: 10MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://127.0.0.1:3306/dbname?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true"
+    username: ""
+    password: ""
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 1       # 最小连接数
+      maximum-pool-size: 10 # 最大连接数
+      auto-commit: true     # 自动提交
+  # 线程池配置
+  task:
+    execution:
+      pool:
+        max-size: 4 #最大线程数量
+        core-size: 2 #初始化线程数量
+        queue-capacity: 10000 #队列最大长度
+        keep-alive: 60s #线程终止前允许保存的最大时间
+      shutdown:
+        await-termination: true
+      thread-name-prefix: "playedu-default-thread"
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+mybatis-plus:
+  global-config:
+    banner: false
+
+sa-token:
+  is-print: false
+  token-name: "Authorization"
+  timeout: 1296000 #token有效期[单位:秒,默认15天]
+  is-concurrent: false #限制同时登录
+  is-share: false
+  jwt-secret-key: "playeduxyz"
+  token-prefix: "Bearer"
+  is-log: false
+  log-level: "warn"
+
+playedu:
+  core:
+    testing: false
+  limiter:
+    duration: 60
+    limit: 360
