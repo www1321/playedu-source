@@ -9,7 +9,6 @@ PlayEdu 是一款开源的企业内部培训解决方案，本仓库在其源码
 ## 目录
 
 - [系统架构](#系统架构)
-- [与 Docker 版的差异](#与-docker-版的差异)
 - [环境要求](#环境要求)
 - [快速开始](#快速开始)
 - [部署后操作](#部署后操作)
@@ -669,8 +668,8 @@ PlayEdu/
 ├── playedu-admin/                   # 管理后台前端
 ├── playedu-pc/                      # PC 学员端前端
 ├── playedu-h5/                      # H5 移动端前端
-├── compose.yml                      # Docker Compose 配置（官方，仅供参考）
-├── DEPLOY.md                        # 快速部署参考
+├── .env.example                     # 环境变量示例（参考）
+├── LICENSE                          # AGPL-3.0 许可证
 └── README.md                        # 本文档
 ```
 
